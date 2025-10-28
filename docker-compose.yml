@@ -1,0 +1,26 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/var/www
+    environment:
+      APP_ENV: production
+      APP_KEY: base64:PGoUbC9pqBfIIP5ZMIEkR/4qppvylnLltWzcXJoXplg=
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: laravel
+      DB_USERNAME: root
+      DB_PASSWORD: root
+
+  db:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABLE: laravel
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
