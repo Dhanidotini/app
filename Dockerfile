@@ -30,4 +30,4 @@ COPY --from=vendor /app/vendor ./vendor
 RUN chown -R www-data:www-data /var/www && chmod -R 775 /var/www
 EXPOSE 8888
 
-CMD php artisan serve --port=80
+CMD php artisan serve --port=8000
